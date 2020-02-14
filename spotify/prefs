@@ -10,6 +10,6 @@ autologin.canonical_username="12184022042"
 storage.size=3072
 storage.last-location="/home/whuang/.cache/spotify/Storage"
 app.window.position.width=476
-core.clock_delta=-3
+core.clock_delta=-1
 app.last-launched-version="1.1.10.546.ge08ef575"
 app.autostart-configured=true
