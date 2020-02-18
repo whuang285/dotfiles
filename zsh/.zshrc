@@ -114,3 +114,5 @@ prompt_context() {
 
 # vi key bindings
 bindkey -v
+
+
