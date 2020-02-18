@@ -64,6 +64,25 @@ exec swayidle -w \
 	natural_scroll enabled
     }
 
+### Output configuration
+# Laptop Monitor
+output eDP-1 {
+    position 1280 1440
+    resolution 1920x1080
+}
+# Work Left Screen
+output DP-1 {
+    position 0 0
+    resolution 2560x1440
+}
+# Work Right Screen
+output DP-6 {
+    position 2560 0
+    resolution 2560x1440
+}
+# Focus monitor to laptop screen on sway launch
+exec swaymsg focus output eDP-1 
+
 ### Key bindings
 #
 # Basics:
@@ -76,6 +95,9 @@ exec swayidle -w \
 
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    # Lock Computer
+    bindsym $mod+Ctrl+l exec "~/.config/sway/fancy-lock.sh"
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -226,16 +248,40 @@ include /etc/sway/config.d/*
 #
 # Custom Keybindings
 #
-	# Volume Control
-	bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
-	bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
-	bindsym XF86AudioMute exec amixer -q set Master toggle
+    # Volume Control
+    bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
+    bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
+    bindsym XF86AudioMute exec amixer -q set Master toggle
 	
-	# Media Player
-	bindsym XF86AudioNext exec playerctl next
-	bindsym XF86AudioPrev exec playerctl previous
-	bindsym XF86AudioPlay exec playerctl play-pause
+    # Media Player
+    bindsym XF86AudioNext exec playerctl next
+    bindsym XF86AudioPrev exec playerctl previous
+    bindsym XF86AudioPlay exec playerctl play-pause
 
-	# Monitor Brightness
-	bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
- 	bindsym XF86MonBrightnessUp exec brightnessctl set +5% 
+    # Monitor Brightness
+    bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+    bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+
+    # Caputre all screens to clipboard
+    bindsym Print exec grim - | wl-copy
+    
+    # Capture the specified area to clipboard
+    bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
+
+    # Capture the focused monitor to clipboard
+    bindsym Shift+Ctrl+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
+
+#
+# Mode setup
+#
+
+    # Disable follow focus by mouse
+    focus_follows_mouse no
+
+    # Enable border only when have more than one window
+    default_border pixel 1
+    default_floating_border none
+    hide_edge_borders smart
+
+    # Add gaps between windows
+    gaps inner 10
