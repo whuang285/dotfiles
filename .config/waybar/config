@@ -28,7 +28,7 @@
         "tooltip": false
     },
     "clock": {
-        "format": "{:%a %d %b %r}",
+        "format": "{:%a %b %d %r}",
         "tooltip": false
     },
     "battery": {

@@ -2,11 +2,7 @@
 
 # Defaults
 # All options are here: http://www.imagemagick.org/Usage/blur/#blur_args
-BLURTYPE="0x5"
-#BLURTYPE="0x2"
-#BLURTYPE="5x3"
-#BLURTYPE="2x8"
-#BLURTYPE="2x3"
+BLURTYPE="0x8"
 
 IMAGE_RE="([0-9]+)x([0-9]+)"
 FOLDER="$(dirname "$(readlink -f "$0")")"
@@ -14,7 +10,7 @@ LOCK="$FOLDER/lock.png"
 TEXT="$FOLDER/text.png"
 PARAMS=""
 OUTPUT_IMAGE="/tmp/swaylock.png"
-DISPLAY_TEXT=true
+DISPLAY_TEXT=false
 PIXELATE=false
 
 # Read user input
@@ -79,7 +75,7 @@ do
   if $PIXELATE ; then
     PARAMS="'$OUTPUT_IMAGE.$NAME.png' '-scale' '10%' '-scale' '1000%' $PARAMS '$OUTPUT_IMAGE.$NAME.png'"
   else
-    PARAMS="'$OUTPUT_IMAGE.$NAME.png' '-level' '0%,100%,0.6' '-blur' '$BLURTYPE' $PARAMS '$OUTPUT_IMAGE.$NAME.png'"
+    PARAMS="'$OUTPUT_IMAGE.$NAME.png' '-blur' '$BLURTYPE' $PARAMS '$OUTPUT_IMAGE.$NAME.png'"
   fi
   eval convert $PARAMS
 done <<<"`swaymsg -t get_outputs | jq -c .[]`"

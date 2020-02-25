@@ -37,10 +37,10 @@ output * bg ~/Pictures/Catalina.jpg fill
 # Example configuration:
 #
 exec swayidle -w \
-        timeout 300 'swaylock -f -c 000000' \
+        timeout 300 'exec "~/.config/sway/lock.sh"' \
         timeout 600 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"' \
-        before-sleep 'swaylock -f -c 000000'
+        before-sleep 'exec "~/.config/sway/lock.sh"'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -101,7 +101,10 @@ exec swayidle -w \
     bindsym $mod+d exec $menu
 
     # Lock Computer
-    bindsym $mod+Ctrl+l exec "~/.config/sway/lock.sh"
+    bindsym $mod+Shift+x exec "~/.config/sway/lock.sh"
+
+    # Notifications
+    bindsym $mod+delete exec makoctl dismiss
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -178,6 +181,15 @@ exec swayidle -w \
     bindsym $mod+Shift+0 move container to workspace $ws10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+    
+    # Move workspace between monitors
+    # Command: move workspace to output left|right|down|up|current|primary|<output>
+    bindsym $mod+Ctrl+Left move workspace to output left
+    bindsym $mod+Ctrl+Right move workspace to output right
+    bindsym $mod+Ctrl+Up move workspace to output up  
+    bindsym $mod+Ctrl+Down move workspace to output down
+
+
 #
 # Layout stuff:
 #
@@ -324,3 +336,8 @@ include /etc/sway/config.d/*
     # assign [app_id="music"] workspace $ws5
     # exec spotify --class music
 
+#
+# Apps
+#
+    # Run on startup
+    exec mako	
