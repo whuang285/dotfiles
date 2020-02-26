@@ -103,9 +103,6 @@ exec swayidle -w \
     # Lock Computer
     bindsym $mod+Shift+x exec "~/.config/sway/lock.sh"
 
-    # Notifications
-    bindsym $mod+delete exec makoctl dismiss
-
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -340,4 +337,8 @@ include /etc/sway/config.d/*
 # Apps
 #
     # Run on startup
-    exec mako	
+    exec mako
+
+    # Assign apps to workspaces
+    assign [class="^Slack$"] $ws4
+    assign [class="^Firefox"] $ws1	
