@@ -75,7 +75,7 @@
             "default": ["", "", ""]
         },
 	"on-click": "pavucontrol",
-	"scroll-step": 10
+	"scroll-step": 1
     },
     "custom/spotify": {
         "interval": 1,

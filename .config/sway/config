@@ -290,8 +290,11 @@ include /etc/sway/config.d/*
     bindsym XF86AudioPlay exec playerctl play-pause
 
     # Monitor Brightness
-    bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+    # bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+    # bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+    # NOTE: both brightnessctl and light works. changed to light to be consistent with waybar
+    bindsym XF86MonBrightnessDown exec light -U 5
+    bindsym XF86MonBrightnessUp exec light -A 5
 
     # Caputre all screens to clipboard
     bindsym Print exec grim - | wl-copy
