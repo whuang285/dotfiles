@@ -18,26 +18,22 @@ tooltip {
 }
 
 window#waybar {
-    /*background: @bar_bg;*/
     background: transparent;
 }
 
 window {
     color:      @foreground;
-    background: @background;
+    background: transparent;
 }
 
 window#waybar.solo {
     color:      @foreground;
     background: transparent;
-    /*background: @bar_bg;*/
 }
 
 window > box {
-    margin: 5px 10px;
+    margin: 5px;
     background: @bar_bg;
-    /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
-    /*color: white;*/
 }
 
 #workspaces {

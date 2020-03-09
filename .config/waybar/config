@@ -33,10 +33,12 @@
         "tooltip": false
     },
     "clock#time": {
+        "interval": 1,
         "format": "{:%r}",
         "tooltip": false
     },
     "clock#date": {
+        "interval": 10,
         "format": "  {:%a %b %e}",
         /*"tooltip-format": "{:%a, %B %e, %Y}"*/
         "tooltip-format": "<b><big>{:%B %Y}</big></b>\n<tt><small>{calendar}</small></tt>"

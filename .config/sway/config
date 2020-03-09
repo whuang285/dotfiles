@@ -315,7 +315,9 @@ include /etc/sway/config.d/*
     hide_edge_borders smart
 
     # Add gaps between windows
-    gaps inner 10
+    # gaps inner|outer|horizontal|vertical|top|right|bottom|left <px>
+    gaps inner 5
+    gaps top 5
 
 # 
 # Autostart programs
