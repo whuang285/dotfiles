@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#import pywal colors
+source "$HOME/.cache/wal/colors.sh"
+
 # Defaults
 # All options are here: http://www.imagemagick.org/Usage/blur/#blur_args
 BLURTYPE="0x8"
@@ -12,6 +15,19 @@ PARAMS=""
 OUTPUT_IMAGE="/tmp/swaylock.png"
 DISPLAY_TEXT=false
 PIXELATE=false
+LOCK_PARAMS="--daemonize
+    --indicator-radius 80
+    --inside-color 00000090 
+    --inside-clear-color ${color2}90 
+    --inside-ver-color ${color3}90
+    --inside-wrong-color ${color5}90
+    --key-hl-color $color1
+    --bs-hl-color $color2
+    --ring-color $background
+    --ring-clear-color $color2
+    --ring-wrong-color $color5
+    --ring-ver-color $color3
+    --line-uses-ring"
 
 # Read user input
 POSITIONAL=()

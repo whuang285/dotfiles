@@ -117,4 +117,7 @@ prompt_context() {
 # vi key bindings
 bindkey -v
 
-
+# Environment Variables
+export XDG_CURRENT_DESKTOP=Unity
+export WLR_DRM_NO_MODIFIERS=1
+export WLR_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1 sway

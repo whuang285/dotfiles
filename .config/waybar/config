@@ -1,17 +1,17 @@
 {
-    "layer": "bottom",
+    "layer": "top",
     "position": "top",
     "height": 30,
 
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["tray", "custom/spotify", "backlight", "pulseaudio", "network", "idle_inhibitor", "battery", "clock"],
+    "modules-right": ["tray", "custom/spotify", "backlight", "pulseaudio", "network", "idle_inhibitor", "battery", "clock#date", "clock#time"],
     "sway/mode": {
         "format": " {}"
     },
     "sway/workspaces": {
         "disable-scroll": true,
-        "format": "{icon}",
+        "format": "{icon} {name}",
         "format-icons": {
             "1:web": "",
             "2:code": "",
@@ -28,8 +28,18 @@
         "tooltip": false
     },
     "clock": {
+        "interval": 1,
         "format": "{:%a %b %d %r}",
         "tooltip": false
+    },
+    "clock#time": {
+        "format": "{:%r}",
+        "tooltip": false
+    },
+    "clock#date": {
+        "format": "  {:%a %b %e}",
+        /*"tooltip-format": "{:%a, %B %e, %Y}"*/
+        "tooltip-format": "<b><big>{:%B %Y}</big></b>\n<tt><small>{calendar}</small></tt>"
     },
     "battery": {
         "format": "{capacity}% {icon}",
@@ -39,17 +49,17 @@
         "format-plugged": "{capacity}% ",
         "interval": 30,
         "states": {
-            "warning": 25,
-            "critical": 10
+            "warning": 30,
+            "critical": 15
         },
-        "tooltip": false
+        "tooltip": true
     },
     "network": {
-	"format-wifi": "{essid} ",
+    	"format-wifi": "{essid} ",
         "format-ethernet": "{ipaddr}  ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-    	"tooltip": false
+    	"tooltip-format": "{ifname}: {ipaddr}"
     },
     "pulseaudio": {
         "tooltip": false,
