@@ -21,7 +21,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu -b | xargs swaymsg exec --
+set $menu dmenu_path | dmenu -b -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -320,7 +320,6 @@ include /etc/sway/config.d/*
     # Add gaps between windows
     # gaps inner|outer|horizontal|vertical|top|right|bottom|left <px>
     gaps inner 5
-    gaps top 5
 
 # 
 # Autostart programs

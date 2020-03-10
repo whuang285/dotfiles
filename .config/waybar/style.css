@@ -4,12 +4,12 @@
 
 * {
     border:        none;
-    border-radius: 0;
+    border-radius: 5px;
     font-family:   Sans;
-    font-size:     13px;
+    font-size:     12px;
     box-shadow:    none;
     text-shadow:   none;
-    transition-duration: 0s;
+    transition-duration: 0.5s;
 }
 
 tooltip {
@@ -31,16 +31,18 @@ window#waybar.solo {
     background: transparent;
 }
 
-window > box {
-    margin: 5px;
+window > box  {
+    margin: 5px 5px 0 5px;
     background: @bar_bg;
 }
 
 #workspaces {
-    margin: 0 5px;
+    margin: 3px 5px;
 }
 
 #workspaces button {
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
     padding:    0 5px;
     background: transparent;
     color:      alpha(@foreground, 0.25);
@@ -48,29 +50,27 @@ window > box {
 
 #workspaces button.visible {
     color:      @foreground;
+    font-weight: bold;
 }
 
-#workspaces button.urgent,
 #workspaces button.focused {
     border-top: 3px solid @color4;
     border-bottom: 3px solid alpha(@color4, 0);
-    border-radius: 8px 0;
     background: alpha(@color6, 0.6);
-}
+}  
 
 #workspaces button.urgent {
-    background: alpha(@color6, 0.8);
     color:      rgba(238, 46, 36, 1);
 }
 
 #workspaces button:hover {
     border-top: 3px solid @color2;
     color: @foreground;
+    background: alpha(@color6, 0.3);
 }
 
 #tray, 
-#clock, 
-#mode, 
+#clock,  
 #battery, 
 #cpu, 
 #memory, 
@@ -83,15 +83,17 @@ window > box {
 #custom-weather, 
 #custom-mail {
     padding: 0 10px;
-    margin:     2px 5px;
+    margin:    3px 5px;
     background-color: alpha(mix(@bar_bg, @color3, 0.7), 0.5);
     color: @foreground;
-    border-radius: 3px 10px;
+    border-radius: 3px 8px;
 }
 
 #mode {
-    border-radius: 10px 3px;
+    padding: 0 10px;
     color: @foreground;
+    margin:    3px 5px;
+    background-color: alpha(mix(@bar_bg, @color3, 0.7), 0.5);
     border: 1px solid alpha(mix(@bar_bg, @color3, 0.7), 0.7);
 }
 

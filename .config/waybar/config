@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 30,
+    //"height": 30,
 
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
@@ -93,8 +93,8 @@
         "exec": "~/.config/waybar/modules/storage.sh"
     },
     "backlight": {
-        "format": "{icon}",
-        "format-alt": "{percent}% {icon}",
+        "format": "{percent}% {icon}",
+        "format-alt": "{icon}",
         "format-alt-click": "click-right",
         "format-icons": ["", ""],
         "on-scroll-down": "light -A 1",
