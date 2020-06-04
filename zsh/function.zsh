@@ -1,6 +1,7 @@
 #vpn
 vpn() {
-    systemctl "$@" wg-quick@criticalstack.service
+    #systemctl "$@" wg-quick@criticalstack.service
+    nmcli connection "$1" "$2"
 }
 
 #wifi

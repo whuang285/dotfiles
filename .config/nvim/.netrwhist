@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/whuang/Projects/dotfiles/.config/sway'
+let g:netrw_dirhist_7='/home/whuang/steam-backups/StardewValley/local-stardewvalley-mods/Mods/CPCoiiGirlsSets'
 let g:netrw_dirhist_6='/home/whuang/Projects/dotfiles/.config/waybar'
 let g:netrw_dirhist_5='/home/whuang/Projects/dotfiles/.config/wal/templates'
 let g:netrw_dirhist_4='/usr/share/pixmaps'

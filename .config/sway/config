@@ -36,39 +36,6 @@ client.focused $color0 $background $foreground $color7 $background
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-### Idle configuration
-#
-# Example configuration:
-#
-exec swayidle -w \
-        timeout 300 'exec "~/.config/sway/lock.sh"' \
-        timeout 600 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
-        before-sleep 'exec "~/.config/sway/lock.sh"'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-    input "1739:31251:SYNA2393:00_06CB:7A13_Touchpad" {
-	tap enabled
-	natural_scroll enabled
-    }
-
-### Output configuration
 # Laptop Monitor
 #output eDP-1 {
 #    position 1280 1440
@@ -92,6 +59,46 @@ exec swayidle -w \
 # Clamshell Mode  
 #bindswitch --reload lid:on output eDP-1 disable
 #bindswitch --reload lid:off output eDP-1 enable 
+
+
+
+### Idle configuration
+#
+# Example configuration:
+#
+exec swayidle -w \
+        timeout 300 'exec "~/.config/sway/lock.sh"' \
+        timeout 900 'systemctl suspend'\
+        before-sleep 'exec "~/.config/sway/lock.sh"'
+#        timeout 10 'swaymsg "output * dpms off"' \
+#              resume 'swaymsg "output * dpms on"' \
+
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+### Input configuration
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+    input "1739:31251:SYNA2393:00_06CB:7A13_Touchpad" {
+	    tap enabled
+	    natural_scroll enabled
+    }
+
+    input "1133:16514:Logitech_MX_Master_3" {
+        natural_scroll enabled
+    }
 
 ### Key bindings
 #
@@ -280,8 +287,8 @@ include /etc/sway/config.d/*
 # Custom Keybindings
 #
     # Volume Control
-    bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
-    bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
+    bindsym XF86AudioRaiseVolume exec amixer -q set Master 1%+
+    bindsym XF86AudioLowerVolume exec amixer -q set Master 1%-
     bindsym XF86AudioMute exec amixer -q set Master toggle
 	
     # Media Player
@@ -348,6 +355,7 @@ include /etc/sway/config.d/*
 #
     # Run on startup
     exec mako
+#    exec --no-startup-id 'nm-applet --indicator'
 
     # Assign apps to workspaces
     assign [class="^Slack$"] $ws4

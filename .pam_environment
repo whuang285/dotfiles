@@ -1,2 +1,3 @@
 MOZ_ENABLE_WAYLAND=1
+WINEDLLOVERRIDES=mscoree=d;mshtml=d
 
