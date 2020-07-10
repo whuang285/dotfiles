@@ -57,8 +57,8 @@ client.focused $color0 $background $foreground $color7 $background
 #exec swaymsg focus output eDP-1
 
 # Clamshell Mode  
-#bindswitch --reload lid:on output eDP-1 disable
-#bindswitch --reload lid:off output eDP-1 enable 
+bindswitch --reload lid:on output eDP-1 disable
+bindswitch --reload lid:off output eDP-1 enable 
 
 
 
