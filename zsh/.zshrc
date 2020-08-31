@@ -119,6 +119,7 @@ bindkey -v
 
 # Environment Variables
 export GO111MODULE=on
+export GOSUMDB=off
 export GOPATH=$HOME/go
 export PATH="$PATH:$GOPATH/bin"
 export XDG_CURRENT_DESKTOP=Unity
