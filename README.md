@@ -1,5 +1,6 @@
 # dotfiles
 Dotfiles for an Arch Linux distro
+
 Currently running:
 - Display Server: Wayland
 - Tiling Compositor: Sway
