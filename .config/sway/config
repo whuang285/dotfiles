@@ -26,16 +26,16 @@ client.urgent           $cl_urge $cl_urge $cl_fore $cl_urge $cl_urge
 set $ws1 "1:web"
 set $ws2 "2:code"
 set $ws3 "3:term"
-set $ws4 "4:work"
-set $ws5 "5:music"
+set $ws4 "4:slack"
+set $ws5 "5:zoom"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $ws10 "10:music"
 
 # Font
-font pango:Sans 12
+# font pango:Sans 12
 
 # Window borders
 default_border pixel 1
@@ -48,6 +48,7 @@ gaps inner 5
 exec mako
 exec spotify
 exec slack
+exec chromium
 
 # Input configuration
 input "1739:31251:SYNA2393:00_06CB:7A13_Touchpad" {
@@ -62,9 +63,11 @@ input "1133:16514:Logitech_MX_Master_3" {
 output * bg $wallpaper fill
 
 # Default workspaces for common programs
-assign [class="^Google-chrome$"] $ws1
+assign [class="^Chromium$"] $ws1
 assign [class="^Slack$"] $ws4
-for_window [class="Spotify"] move container to workspace $ws5
+assign [class="^zoom$"] $ws5
+for_window [class="zoom"] move container to workspace $ws5
+for_window [class="Spotify"] move container to workspace $ws10
 
 # Shortcuts
 bindsym $mod+Return exec $term
@@ -99,6 +102,7 @@ bindsym $mod+Ctrl+Shift+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[]
 # Notifications
 # bindsym Control+Space exec makoctl dismiss
 # bindsym Control+Shift+Space exec makoctl dismiss --all
+focus_on_window_activation focus
 
 # Multimedia
 bindsym --locked XF86AudioRaiseVolume exec amixer -q set Master 1%+

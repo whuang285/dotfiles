@@ -13,11 +13,12 @@
         "disable-scroll": true,
         "format": "{icon} {name}",
         "format-icons": {
-            "1:web": "",
+            "1:web": "",
             "2:code": "",
             "3:term": "",
-            "4:work": "",
-            "5:music": "",
+            "4:slack": "",
+            "5:zoom": "",
+            "10:music": "",
             "urgent": "",
             "focused": "",
             "default": ""
