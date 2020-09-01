@@ -15,6 +15,7 @@ Currently running:
 
 ## Helpful Commands
 - Figure out what key is being pressed (doesn't show exact key name that corresponds with sway): `sudo libinput debug-events --show-keycodes`
+- List class names for all open windows: `swaymsg -t get_tree | grep "class"`
 - **Dell** Function keys can be reversed by `Fn + Esc`. Can change the function keys so that F1-F12 are the main use (without use of the Fn key) and the multimedia keys are on Fn and vice versa.
 
 ### How to `symlink` Files:
