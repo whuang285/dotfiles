@@ -48,3 +48,6 @@ Currently running:
   - Fix: comment out the lines in `.zprofile` that automatically starts sway (`exec sway`) and relogin to account. This should bring you to the terminal (**tty**). At this point, start sway manually by just entering `sway`. Then logout again to the tty terminal screen (out of sway - `mod+Shift+e` and then `e` to logout). Add the commented out lines back in to the `.zprofile` and then logout of terminal by executing `exec sway` (this'll take you to the login screen. exits out of the tty terminal). Log back in. At this point, `.zprofile` should automatically start sway and `swaymsg` should be working again. If not, reboot and repeat.
 - When starting sway manually from tty terminal, receive errors similar to: `Wayland - Could not connect to remote display: no such file or directory` and `Sway - Unable to create backend`
   - Fix: Reboot
+
+### Poweroff/Suspend Issues
+- use `/etc/systemd/logind.conf` to configure how to handle the power key and closing lid
