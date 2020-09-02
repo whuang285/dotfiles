@@ -36,7 +36,7 @@ Currently running:
   - Set the following environment variables:
     - `export XDG_SESSION_TYPE=wayland`
     - `export XDG_CURRENT_DESKTOP=sway`
-    - this needs to be set to sway for *xdg-desktop-portal-wlr* to run
+      - this needs to be set to sway for *xdg-desktop-portal-wlr* to run
   - Enable `WebRTC PipeWire support` on Chromium: `chrome://flags/#enable-webrtc-pipewire-capturer`
 - How to Run:
   - Get pipewire up and running before opening Chromium
