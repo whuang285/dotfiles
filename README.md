@@ -32,16 +32,25 @@ Currently running:
   - `yay -S xdg-desktop-portal-wlr-git`
     - *xdg-desktop-portal-wlr-git* is what's important here to make screen share work
   - `pacman -S libpipewire02`
-- Set the following environment variables:
-  - `export XDG_SESSION_TYPE=wayland`
-  - `export XDG_CURRENT_DESKTOP=sway`
+- Setup:
+  - Set the following environment variables:
+    - `export XDG_SESSION_TYPE=wayland`
+    - `export XDG_CURRENT_DESKTOP=sway`
     - this needs to be set to sway for *xdg-desktop-portal-wlr* to run
-- make sure `pipewire.service` and `pipewire.socket` are up and running
-  - `systemctl --user status pipewire.service`
-  - `systemctl --user status pipewire.socket`
-- Enable `WebRTC PipeWire support` on Chromium: `chrome://flags/#enable-webrtc-pipewire-capturer`
-  
-
+  - Enable `WebRTC PipeWire support` on Chromium: `chrome://flags/#enable-webrtc-pipewire-capturer`
+- How to Run:
+  - Get pipewire up and running before opening Chromium
+    - ~~make sure `pipewire.service` and `pipewire.socket` are up and running~~
+      - ~~`systemctl --user status pipewire.service`~~
+      - ~~`systemctl --user status pipewire.socket`~~
+    - Run this in background: `env PIPEWIRE_DEBUG=3 pipewire`
+  - Run xdpw: `/usr/lib/xdg-desktop-portal --verbose -r & /usr/lib/xdg-desktop-portal-wlr -l DEBUG`
+  - Run Chromium thru the terminal: `chromium`
+  - **TLDR**:  
+    In separate terminals execute the following commands in the following order:
+    1. `env PIPEWIRE_DEBUG=3 pipewire`
+    2. `/usr/lib/xdg-desktop-portal --verbose -r & /usr/lib/xdg-desktop-portal-wlr -l DEBUG`
+    3. `chromium`
 
 ## Issues Encountered
 - Sometimes `swaymsg` will start giving errors: `ERROR: Unable to connect to /run/user/1000/sway-ipc.1000.4981.sock`
