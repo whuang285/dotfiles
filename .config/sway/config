@@ -46,9 +46,9 @@ gaps inner 5
 
 # Autostart
 exec mako
+exec chromium
 exec spotify
 exec slack
-exec chromium
 
 # Input configuration
 input "1739:31251:SYNA2393:00_06CB:7A13_Touchpad" {
@@ -80,7 +80,7 @@ bindsym $mod+b splith
 bindsym $mod+v splitv
 
 bindsym $mod+l exec $lock
-bindsym $mod+Escape exec $power
+bindsym $mod+Shift+Escape exec $power
 
 # Screen Capture:
 
@@ -117,10 +117,9 @@ bindsym --locked XF86MonBrightnessUp exec light -A 5
 bindsym --locked XF86MonBrightnessDown exec light -U 5
 
 # Idle configuration
-exec swayidle \
+exec swayidle -w \
     timeout 300 'exec $lock' \
-    timeout 600 'swaymsg "output * dpms off"' \
-    after-resume 'swaymsg "output * dpms on"' \
+    timeout 600 'systemctl suspend' \
     before-sleep 'exec $lock'
 
 # Move your focus around
