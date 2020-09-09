@@ -122,6 +122,4 @@ export GO111MODULE=on
 export GOSUMDB=off
 export GOPATH=$HOME/go
 export PATH="$PATH:$GOPATH/bin"
-export XDG_CURRENT_DESKTOP=Unity
-export WLR_DRM_NO_MODIFIERS=1
-export WLR_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1 sway
+
