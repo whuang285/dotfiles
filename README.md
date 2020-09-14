@@ -60,3 +60,6 @@ Currently running:
 
 ### Poweroff/Suspend Issues
 - use `/etc/systemd/logind.conf` to configure how to handle the power key and closing lid
+
+### Disabling Phantom Monitor  
+In some cases, a non-existent monitor may be detected by the system. To disable it, find the name of the phantom output, e.g. DP-2, and turn it off with ```swaymsg output DP-2 disable```
