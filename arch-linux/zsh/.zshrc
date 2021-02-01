@@ -1,4 +1,4 @@
-# Start tmux on shell login
+Git cd doc# Start tmux on shell login
 [[ -z "$TMUX" ]] && exec tmux
 
 # If you come from bash you might have to change your $PATH.
