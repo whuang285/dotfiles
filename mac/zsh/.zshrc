@@ -75,7 +75,6 @@ ZSH_CUSTOM=~/Documents/dotfiles/mac/zsh
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
-    kubectl
     brew
 )
 
@@ -119,8 +118,3 @@ prompt_context() {
 bindkey -v
 
 # Environment Variables
-export GO111MODULE=on
-export GOSUMDB=off
-export GOPATH=$HOME/go
-export PATH="$PATH:$GOPATH/bin"
-

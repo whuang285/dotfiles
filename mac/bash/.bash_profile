@@ -1,21 +1,25 @@
 # .bash_profile
 
-source ~/.bashrc
+# Get the aliases and functions. Note we can use '.' as a shortcut to 'source'
+if [[ -f ~/.bashrc ]]; then
+    . ~/.bashrc
+fi
 
-# export JAVA_HOME=$(/usr/libexec/java_home -v 2.8)
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/
-export M2_HOME=/usr/local/Cellar/maven/3.6.0/libexec
+#
+# User specific environment and startup programs.
+#
+export PATH="$PATH:$HOME/.local/bin:$HOME/bin"
 
-cofproxy on
+# Example: CUDA.  Since you (most likely) do not have this installed I have left it commented
+# out, we will be modifying this later in the semester when we go over compiling projects
+# from the source code.
+# export PATH="$PATH:/usr/local/cuda-7.5/bin"
+# export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-7.5/lib64"
 
-alias casedb="rm ~/.ssh/known_hosts; ssh -L 5435:casemgmt-db.cloud.capitalone.com:5432 card-bastion-pl.cloud.capitalone.com -N"
 
-alias token0="~/Documents/SecurityTokenScript-MacOS-1.3.0 --gen-config" 
-alias token1="~/Documents/SecurityTokenScript-MacOS-1.3.0"
-alias token2="vim ~/.aws/credentials"
-alias awsdev="aws --profile GR_GG_COF_AWS_Card_Dev_Developer ec2 describe-instances --region us-east-1"
-alias awscom="aws --profile GR_GG_COF_AWS_Card_Common_QA_Developer ec2 describe-instances --region us-east-1"
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
 
-if [ -f /usr/local/cof/bin/cofproxy ]                                 #source_cofproxy
-  then source /usr/local/cof/bin/cofproxy > /dev/null 2>&1            #source_cofproxy
-fi                                                                    #source_cofproxy
+alias python="python3.6"
