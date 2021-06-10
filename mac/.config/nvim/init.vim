@@ -1,7 +1,6 @@
 " ==================== plugins ==================== "
 " vim-plug setup (:PlugInstall)
 call plug#begin(stdpath('data') . '/plugged')
-"call plug#begin('~/.local/share/nvim/plugged')
 
 " statusline
 Plug 'itchyny/lightline.vim'
@@ -9,20 +8,11 @@ Plug 'itchyny/lightline.vim'
 " syntax highlighting
 Plug 'sheerun/vim-polyglot'
 
-" code completion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
 " navigation
 Plug 'scrooloose/nerdTree'
 
 " usability
 Plug 'tpope/vim-surround'
-
-" pywal: color
-Plug 'dylanaraps/wal.vim'
-
-" golang
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
@@ -48,27 +38,10 @@ set completeopt=menu            " show possible completions in a pmenu
 
 " ==================== style ==================== "
 
-colorscheme wal                 " set color
+silent! colorscheme molokai                 " set color
 
 " ==================== key mappings ==================== "
 let mapleader = ";"
-
-" ==================== deoplete ==================== "
-if has('nvim')
-    " Enable deoplete on startup
-    let g:deoplete#enable_at_startup = 1
-endif
-
-" Disable deoplete when in multi cursor mode
-"function! Multiple_cursors_before()
-    "let b:deoplete_disable_auto_complete = 1
-"endfunction
-"function! Multiple_cursors_after()
-    "let b:deoplete_disable_auto_complete = 0
-"endfunction
-
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "==================== nerdtree ==================== "
 nmap <leader>n :NERDTreeToggle<CR>

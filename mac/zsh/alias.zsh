@@ -6,7 +6,3 @@ alias c='clear'
 
 # neovim
 alias vim='nvim'
-
-# k8s Shortcuts
-alias k='kubectl'
-
